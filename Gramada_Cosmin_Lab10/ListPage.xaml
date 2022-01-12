@@ -7,23 +7,23 @@
     <ContentPage.Content>
         <StackLayout Margin="20">
             <Editor Placeholder="Enter the description of the shopping list"
-                    Text="{Binding Description}"
-                    HeightRequest="100" />
-            <Editor.Behaviors>
-                <gramadaCosminLab10:ValidationBehaviour />
-            </Editor.Behaviors>
+                    Text="{Binding Description}">
+                <Editor.Behaviors>
+                    <gramadaCosminLab10:ValidationBehaviour />
+                </Editor.Behaviors>
+            </Editor>
             <Button Text="Add/Choose Item to buy" Clicked="OnChooseButtonClicked" />
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition />
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <Button Text="Save"
-                        Clicked="OnSaveButtonClicked" />
+                        Clicked="OnSaveButtonClicked" HeightRequest="{Binding Width}"/>
                 <Button Grid.Row="0" Grid.Column="1"
                         Text="Delete"
                         Clicked="OnDeleteButtonClicked" />
@@ -31,7 +31,7 @@
                           Margin="20">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <TextCell  Detail="{Binding Description}" />
+                            <TextCell Detail="{Binding Description}" />
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
